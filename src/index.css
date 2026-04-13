@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@layer base {
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* Opzionale: un font standard pulito */
+    font-family: system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}

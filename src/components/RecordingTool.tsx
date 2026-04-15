@@ -235,12 +235,10 @@ export default function RecordingTool() {
           playsInline
           muted
         />
-        <div className="flex h-[calc(100vh-1.5rem)] w-full items-center justify-center sm:h-[calc(100vh-2.5rem)]">
+        <div className="relative flex h-[calc(100vh-1.5rem)] w-full items-center justify-center sm:h-[calc(100vh-2.5rem)]">
           <canvas
             ref={canvasRef}
-            width={1280}
-            height={720}
-            className="block h-auto w-auto max-h-full max-w-full rounded-[1.75rem] border border-white/10 bg-black shadow-[0_20px_80px_rgba(0,0,0,0.45)] sm:max-w-[88vw] lg:max-w-[72vw]"
+            className="w-full h-full object-cover border border-white/10 bg-black shadow-[0_20px_80px_rgba(0,0,0,0.45)]"
           />
         </div>
 

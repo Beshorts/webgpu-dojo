@@ -71,8 +71,8 @@ export function useRecordingController(
     ctx.drawImage(video, -W, 0, W, H);
     ctx.restore();
 
-    ctx.fillStyle = 'rgba(0,0,0,0.25)';
-    ctx.fillRect(0, 0, W, H);
+    /* ctx.fillStyle = 'rgba(0,0,0,0.25)';
+    ctx.fillRect(0, 0, W, H); */
 
     if (landmarks) {
       const mirrored = landmarks.map(lm => ({ ...lm, x: 1 - lm.x }));
@@ -141,7 +141,15 @@ export function useRecordingController(
 
     try {
       await initLandmarker();
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+        facingMode: { ideal: "user" },
+        // asking for HD, ut we can accept defined fallback values if the device doesn't support it
+        width: { ideal: 1280 },
+        height: { ideal: 720 }
+  },
+        audio: false
+       });
       const video = videoRef.current;
       const canvas = canvasRef.current;
 
